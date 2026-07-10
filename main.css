@@ -1,0 +1,242 @@
+/* ベースの本文設定 */
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    font-size: 15px;
+    /* TeXっぽく少しスッキリさせるなら15px */
+    line-height: 1.7;
+    /* 行間は少し広めにとると上品になります */
+    color: #313233;
+    /* 真っ黒ではなく少し柔らかい黒 */
+    max-width: 680px;
+    /* 1行が長くなりすぎないように幅を制限 */
+    margin: 40px auto;
+    /* 画面中央に配置 */
+    padding: 0 20px;
+}
+
+/* タイトル（ページ最上位の主役、h1相当） */
+h1,
+.page-title {
+    font-size: 1.8rem;
+    /* 27px程度。デフォルトのh1よりグッと控えめ */
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+/* 小タイトル・中見出し（h2相当） */
+h2,
+.section-title {
+    font-size: 1.3rem;
+    /* 19.5px程度。本文より少し大きいトーン */
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #e6e6e6;
+    /* 薄い下線を引くとTeXのセクションっぽさが出ます */
+    padding-bottom: 0.3rem;
+}
+
+/* 本文・段落 */
+p {
+    font-size: 1rem;
+    /* 15px */
+    margin-bottom: 1.2rem;
+}
+
+/* 注釈・キャプション（小さく、目立たなく） */
+small,
+.annotation,
+.note {
+    font-size: 0.85rem;
+    /* 12.7px程度 */
+    color: #666666;
+    /* 文字色を薄くする */
+    display: block;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* リンクの基本スタイル */
+a.link-item {
+    color: #222222;
+    /* 本文より少し濃い目の黒 */
+    text-decoration: none;
+    /* 初期の下線を消す */
+    font-weight: 500;
+    position: relative;
+    transition: color 0.2s ease;
+    /* 文字色の変化をなめらかに */
+}
+
+/* 通常時の下線を薄く表示しておく */
+a.link-item::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #cccccc;
+    /* 薄いグレーの下線 */
+    transition: background-color 0.2s ease, height 0.2s ease;
+}
+
+/* ホバー時の演出（下線がスッと濃く・太くなる） */
+a.link-item:hover {
+    color: #0056b3;
+    /* 知的なブルーや、アクセントカラー */
+}
+
+a.link-item:hover::after {
+    background-color: #0056b3;
+    height: 2px;
+    /* ホバー時に少し存在感が出る */
+}
+
+
+
+
+
+
+/* 日記エントリ用の押しやすいリンクカード */
+.diary-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.diary-card-list li {
+  margin-bottom: 0.6rem;
+}
+
+.diary-card-link {
+  display: flex;                  /* 横並びをキレイに制御 */
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;          /* 上下にゆとりを持たせ、指で押しやすい高さを確保 */
+  background-color: #fafafa;      /* ほんの少しだけ背景を敷いてクリック領域を明示 */
+  border: 1px solid #eaeaea;      /* TeXっぽい上品な薄い枠線 */
+  border-radius: 4px;             /* 角を少し丸める */
+  text-decoration: none;
+  color: #222222;
+  transition: all 0.2s ease;
+}
+
+/* 日付部分 */
+.diary-card-link .diary-date {
+  font-size: 0.85rem;
+  color: #666666;
+  font-family: monospace;
+  flex-shrink: 0;
+}
+
+/* タイトル部分 */
+.diary-card-link .diary-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  flex-grow: 1;
+  margin-left: 1rem;
+}
+
+/* 右側に添える小さな矢印 */
+.diary-card-link::after {
+  content: "\00BB";                 /* » 記号 */
+  font-size: 1rem;
+  color: #888888;
+  margin-left: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+/* ホバー/タップ時の演出（スッと浮き上がって色づく） */
+.diary-card-link:hover {
+  background-color: #ffffff;
+  border-color: #0056b3;
+  color: #0056b3;
+  transform: translateY(-1px);      /* わずかに浮き上がる */
+}
+
+.diary-card-link:hover::after {
+  transform: translateX(3px);       /* 矢印が右へ動く */
+  color: #0056b3;
+}
+
+
+
+
+/* 日記一覧ページへ飛ぶボタン */
+.btn-more-diary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.4rem;        /* しっかり押しやすい余白 */
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #353536;
+  background-color: transparent; /* 背景は透明にして重さを消す */
+  border: 1px solid #cccccc;     /* 控えめな枠線 */
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* 矢印アイコンの設定 */
+.btn-more-diary::after {
+  content: "→";                  /* シャープな右矢印 */
+  font-family: inherit;
+  margin-left: 0.6rem;
+  transition: transform 0.2s ease;
+}
+
+/* ホバー/タップ時の演出 */
+.btn-more-diary:hover {
+  background-color: #f4f4f5;     /* 薄いグレーを敷いて押せる感を強調 */
+  border-color: #999999;
+  color: #0d0d0e;
+}
+
+.btn-more-diary:hover::after {
+  transform: translateX(4px);    /* 矢印が右にスッと動く */
+}
+
+/* ボタンを配置するラッパー（必要に応じて右寄せや中央寄せに） */
+.btn-wrapper {
+  margin-top: 1.2rem;
+  text-align: right;             /* 右寄せ（centerにすると中央寄せ） */
+}
+
+
+
+
+
+/* ==========================================
+       スマホ向けレスポンシブ設定 (画面幅 600px 以下)
+       ========================================== */
+@media screen and (max-width: 600px) {
+    body {
+        margin: 24px auto;
+        padding: 0 18px;
+        font-size: 80px;
+        /* スマホでもしっかり読みやすい16pxに底上げ */
+    }
+
+    h1,
+    .page-title {
+        font-size: 1.7rem;
+        /* 視認性を保ちつつバランス調整 */
+    }
+
+    h2,
+    .section-title {
+        font-size: 1.25rem;
+        margin-top: 1.8rem;
+    }
+
+    small,
+    .annotation,
+    .note {
+        font-size: 0.9rem;
+        /* 注釈も小さすぎないように調整 */
+    }
+
+}

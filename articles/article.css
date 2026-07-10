@@ -1,0 +1,66 @@
+/* 記事全体のヘッダー（タイトル・メタ情報） */
+.article-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #eaeaea;
+  padding-bottom: 1.5rem;
+}
+
+/* 記事タイトル (h1より少し落ち着いたトーン) */
+.article-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #262627;
+  margin-bottom: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
+/* メタ情報（著者・日付を横並びで控えめに） */
+.article-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.85rem;
+  color: #666668;
+  font-family: monospace; /* 日付や署名を等幅で知的に */
+}
+
+/* 記事本文エリア */
+.article-body {
+  margin-bottom: 3rem;
+}
+
+.article-body p {
+  font-size: 1rem;
+  line-height: 1.8;       /* じっくり読むため行間を少し広め */
+  margin-bottom: 1.5rem;
+}
+
+/* 戻るリンク（一覧へ帰る用） */
+.article-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #eaeaea;
+}
+
+.back-to-home {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #686869;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-to-home::before {
+  content: "← ";
+  margin-right: 0.4rem;
+  transition: transform 0.2s ease;
+}
+
+.back-to-home:hover {
+  color: #2c4a69;
+}
+
+.back-to-home:hover::before {
+  transform: translateX(-3px);
+}
