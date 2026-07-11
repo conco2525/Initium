@@ -68,6 +68,41 @@
 
 
 
+
+
+a.stylish-link {
+  color: #222222;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+/* 常に引いておく極細の下線 */
+a.stylish-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #cccccc;
+  transition: background-color 0.25s ease, height 0.25s ease;
+}
+
+/* ホバー時の洗練された変化 */
+a.stylish-link:hover {
+  color: #0056b3;
+}
+
+a.stylish-link:hover::after {
+  background-color: #0056b3;
+  height: 2px;
+}
+
+
+
+
+
     /* ==========================================
    追加：スマホ向け（画面幅 600px 以下）の折り返し調整
    ========================================== */
