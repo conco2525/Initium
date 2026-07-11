@@ -64,3 +64,29 @@
 .back-to-home:hover::before {
   transform: translateX(-3px);
 }
+
+
+
+
+    /* ==========================================
+   追加：スマホ向け（画面幅 600px 以下）の折り返し調整
+   ========================================== */
+@media screen and (max-width: 600px) {
+  /* メタ情報（著者・日付）を横並びから縦に折り返す */
+  .article-meta {
+    flex-direction: column;
+    gap: 0.3rem;            /* 縦に並んだときの隙間を狭くする */
+  }
+
+  /* 記事タイトルもスマホで少しスッキリさせる */
+  .article-title {
+    font-size: 1.45rem;
+  }
+}
+
+
+/* 長い単語やURL、英数字を強制的に折り返す設定 */
+.article-body p {
+  overflow-wrap: break-word; /* 単語の途中で改行してはみ出しを防ぐ */
+  word-break: break-all;     /* 日本語と英数字が混ざった長い文字列も強制折り返し */
+}
