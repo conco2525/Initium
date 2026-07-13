@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B29の火器管制システム</title>
+  <link rel="stylesheet" href="article.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <!-- 記事ヘッダー -->
+  <header class="article-header">
+    <h1 class="article-title">B29の火器管制システムを考える</h1>
+    <div class="article-meta">
+      <span class="article-author">小杉</span>
+      <time class="article-date">2026.</time>
+    </div>
+  </header>
+
+  <!-- 記事本文 -->
+  <main class="article-body">
+    <h2>B29の性能</h2>
+    <p>アメリカ軍が第二次世界大戦中に運用していたB29という爆撃機があります。大戦末期には日本への空襲に使われたこともあり、知っている人も多いと思います。B29は当時としてはとても高性能で、機体後方についている機銃はコンピューターを使って半自動で敵の戦闘機に偏差射撃を行えたそうです。その仕組みがどうしても気になり、今回はコンピュータ内部で行うであろう計算方法について物理の視点から考えてみました。</p>
+
+    <h2>想定状況</h2>
+    自機後方についている機銃から、後方にいる戦闘機に向かって射撃。戦闘機の垂直方向の速度は小さく、水平面上のみを飛行するとする。自機に固定した座標系で考える。
+
+    <h2>入出力</h2>
+    <p>コンピュータにセンサーなどからどのようなデータが入力されるのか、言い方を変えるならどんなデータは計算に用いて良いのか、そして最終的にどのようなデータを出力として返せばいいのかを決めます。当時の技術力への私の解像度の低さと文献の欠乏を理由に、独断で決めてしまいます。<br>
+      ＜入力＞<br>
+    ・目標を追尾したときの角速度<br>
+    ・目標までの距離（実際は目標の見かけの大きさから距離を推定）（今回は精密にわかるものとする）<br>
+    ・弾丸の速度（事前に実験的に求めておく）<br>
+    ＜出力＞<br>
+    ・偏差射撃のための角度（偏差角と呼ぶことにする）
+    </p>
+
+    <iframe src="https://www.geogebra.org/3d/mnchw3dq?embed" width="800" height="600" allowfullscreen
+      style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+
+  </main>
+
+  <footer class="article-footer">
+    <a href="../Phisics.html" class="back-to-home">前のページに戻る</a>
+  </footer>
+
+</body>
+
+</html>

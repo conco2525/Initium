@@ -30,3 +30,51 @@
 
 </body>
 </html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="article.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        tags: 'ams' 
+      }
+    };
+    </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <!-- 記事ヘッダー -->
+  <header class="article-header">
+    <h1 class="article-title"></h1>
+    <div class="article-meta">
+      <span class="article-author"></span>
+      <time class="article-date">2026.</time>
+    </div>
+  </header>
+
+  <!-- 記事本文 -->
+  <main class="article-body">
+    
+  </main>
+
+  <footer class="article-footer">
+    <a href="../Phisics.html" class="back-to-home">前のページに戻る</a>
+  </footer>
+
+</body>
+
+</html>
