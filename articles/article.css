@@ -29,6 +29,18 @@
   margin-bottom: 3rem;
 }
 
+h2,
+.section-title {
+    font-size: 1.3rem;
+    /* 19.5px程度。本文より少し大きいトーン */
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    
+    /* 薄い下線を引くとTeXのセクションっぽさが出ます */
+    padding-bottom: 0.3rem;
+}
+
 .article-body p {
   font-size: 1rem;
   line-height: 1.8;       /* じっくり読むため行間を少し広め */
@@ -124,4 +136,18 @@ a.stylish-link:hover::after {
 .article-body p {
   overflow-wrap: break-word; /* 単語の途中で改行してはみ出しを防ぐ */
   word-break: break-all;     /* 日本語と英数字が混ざった長い文字列も強制折り返し */
+}
+
+
+/* 注釈・キャプション（小さく、目立たなく） */
+small,
+.annotation,
+.note {
+    font-size: 0.85rem;
+    /* 12.7px程度 */
+    color: #666666;
+    /* 文字色を薄くする */
+    display: block;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
 }
