@@ -72,7 +72,7 @@
   </main>
 
   <footer class="article-footer">
-    <a href="../Phisics.html" class="back-to-home">前のページに戻る</a>
+    <a href="../Physics.html" class="back-to-home">前のページに戻る</a>
   </footer>
 
 </body>

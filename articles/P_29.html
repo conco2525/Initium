@@ -24,13 +24,14 @@
     <h1 class="article-title">B29の火器管制システムを考える</h1>
     <div class="article-meta">
       <span class="article-author">小杉</span>
-      <time class="article-date">2026.</time>
+      <time class="article-date">2026.07.15</time>
     </div>
   </header>
 
   <!-- 記事本文 -->
   <main class="article-body">
-    <h2>B29の性能</h2>
+    <small class="note">このページではGeoGebraのグラフ描画機能を埋め込んでいます。サイトが重たいかもしれません。</small>
+    <h2>爆撃機B29の性能</h2>
     <p>アメリカ軍が第二次世界大戦中に運用していたB29という爆撃機があります。大戦末期には日本への空襲に使われたこともあり、知っている人も多いと思います。B29は当時としてはとても高性能で、機体後方についている機銃はコンピューターを使って半自動で敵の戦闘機に偏差射撃を行えたそうです。その仕組みがどうしても気になり、今回はコンピュータ内部で行うであろう計算方法について物理の視点から考えてみました。</p>
 
     <h2>想定状況</h2>
@@ -46,13 +47,56 @@
     ・偏差射撃のための角度（偏差角と呼ぶことにする）
     </p>
 
-    <iframe src="https://www.geogebra.org/3d/mnchw3dq?embed" width="800" height="600" allowfullscreen
-      style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+    <h2>数値・記号</h2>
+    <p>
+      角速度 $\omega$ <br>
+      目標までの距離 $L$<br>
+      弾丸の速度 $V$<br>
+      水平方向の偏差角 $\theta$<br>
+      重力加速度 $g$(=9.8メートル毎秒毎秒)</p>
+
+    <h2>設定1：目標は同高度を円運動、弾丸は落下しない。</h2>
+    <p>まずは最も簡単な例から始めます。自機から見て目標が円運動、少なくともそのように近似出来るような運動をしていて、弾丸の落下を無視する場合です。この場合は水平偏差角は簡単に計算できて</p>
+    <p>$$\theta=\frac{L\omega}{V}$$</p>
+    <p>と表せます。つまり、目標よりも$\theta$だけ偏差を取って射撃すると当るという計算です。</p>
+
+    <h2>設定2：目標が同高度を直線運動、弾丸は落下しない。</h2>
+    <p>次に目標は自機とともに動く座標系から見て直線運動をする場合を考えます。言葉では説明が難しいので下グラフで説明します。</p>
+
+    <iframe src="https://www.desmos.com/calculator/stblmia12a?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+    <p>このグラフの原点に自機があり、$t=0$のとき$x=100$メートルのところに目標があり、例えば$t=1$秒までの軌跡をグラフが表している、そんな状況です。ここで、目標の速度$V$を接線方向と中心方向に分けます。<br>
+    接線(tangential)方向の速度：$V_t$ <br>
+    中心(center)方向の速度：$V_c$ <br>
+    目標の速さ$v_oは$$v_o=\sqrt{V_c^2 + V_t^2}$となります。このときはこの二つの接線方向と中心方向の速度が正確に測れるものとしています。（ちょっとずるいのですが。）すると、図形的に考えると偏差角$\theta$は</p>
+    <p>$$\theta=\arcsin\frac{V_t}{V}$$</p>
+    <p>となり、中心方向の速度は実は必要ないことがわかり、せっかく成分分けたのに……となります。</p>
+
+    <h2>設定3：目標が異なる高度を円運動、弾丸は落下する。</h2>
+    <p>ここまで来ると流石に言葉で状況を表すのが難しいのでGeoGebraのグラフを下に置きます。弾丸が$P$、目標が$Q$と表されています。$t$のパラメタを動かすと2点が動くのが見えます。</p>
+    <iframe src="https://www.geogebra.org/3d/mnchw3dq?embed" width="800" height="600" allowfullscreen style="border: 1px solid #e4e4e4;border-radius: 4px;" frameborder="0"></iframe>
+    <p>垂直方向に関する定数を追加しているので記号を説明します。<br>
+    水平面から目標まで測った仰角 $\beta$ <br>
+    垂直方向の発射角 $\gamma$　（発射角=$\beta$+偏差角）</p>
+
+    <p>グラフ上では、$P, Q$の軌跡は時間$t$の関数として以下のように表され</p>
+    <p>$$P=(V\cdot t \cos\gamma\cos\theta,V\cdot t \cos\gamma\sin\theta, V\cdot t\sin\gamma-\frac{1}{2}gt^2)$$</p>
+    <p>$$Q=(L\cos\beta\cos(\omega t), L\cos\beta\sin(\omega t), L\sin\beta)$$</p>
+    <p>そして水平方向の偏差角$\theta$と発射角$\gamma$は結構面倒な計算を経なければなりません。</p>
+    <p>$$ \begin{cases} a=\frac{L^2 g}{2V^2}\cos^2\beta \\
+    b=-L\cos\beta \\
+    c=\frac{L^2 g}{2V^2}\cos^2\beta+L\sin\beta \end{cases}$$</p>
+    <p>$$X=\frac{-b-\sqrt{b^2-4ac}}{2a}$$</p>
+    <p>と数を置いて計算したときに</p>
+    <p>$$\gamma=\arctan X$$</p>
+    <p>$$\theta=\frac{\omega L\cos\beta}{V\cos\gamma}$$</p>
+    <p>とようやく表せます。</p>
+    <small class="note">※本稿は物理的に間違っている可能性があります！鵜呑みにしないで！（責任逃れ）</small>
 
   </main>
 
   <footer class="article-footer">
-    <a href="../Phisics.html" class="back-to-home">前のページに戻る</a>
+    <a href="../Physics.html" class="back-to-home">前のページに戻る</a>
   </footer>
 
 </body>
