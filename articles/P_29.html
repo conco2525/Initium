@@ -79,10 +79,20 @@
     水平面から目標まで測った仰角 $\beta$ <br>
     垂直方向の発射角 $\gamma$　（発射角=$\beta$+偏差角）</p>
 
-    <p>グラフ上では、$P, Q$の軌跡は時間$t$の関数として以下のように表され</p>
+    <p>グラフ上では、$P, Q$の軌跡は時間$t$の関数として以下のように表されます。</p>
     <p>$$P=(V\cdot t \cos\gamma\cos\theta,V\cdot t \cos\gamma\sin\theta, V\cdot t\sin\gamma-\frac{1}{2}gt^2)$$</p>
     <p>$$Q=(L\cos\beta\cos(\omega t), L\cos\beta\sin(\omega t), L\sin\beta)$$</p>
-    <p>そして水平方向の偏差角$\theta$と発射角$\gamma$は結構面倒な計算を経なければなりません。</p>
+    <p>そして水平方向の偏差角$\theta$と発射角$\gamma$は結構面倒な計算を経なければなりません。一度水平方向の偏差角$\theta,\omega$を無視すると平面上の問題に帰着して、</p>
+
+    <p>$$ P':(x, z)=(V\cdot t \cos\gamma, V\cdot t\sin\gamma-\frac{1}{2}gt^2)$$ </p>
+    <p>$$ Q':(x, z)=(L\cos\beta, L\sin\beta) $$</p>
+
+    <p>$P'$について$t$を消去して$x, z$だけの式にすると、放物線は$x-z$平面で</p>
+    <p>$$z=-\frac{g}{2V^2}\cdot\frac{1}{\cos^2\gamma}x^2 + \frac{\sin\gamma}{\cos\gamma}x = -\frac{g}{2V^2}(\tan^2\gamma + 1)x^2 + \tan\gamma\cdot x$$</p>
+    <p>と表されて、この放物線が$ Q':(x, z)=(L\cos\beta, L\sin\beta) $を通る$\gamma$の解を考える。代入して$\tan\gamma=X$とおいて$X$について整理すると</p>
+    <p>$$\frac{L^2 g}{2V^2}\cos^2\beta\cdot X^2 -L\cos\beta\cdot X +\frac{L^2 g}{2V^2}\cos^2\beta+L\sin\beta = 0$$</p>
+    <p>$\tan\gamma$はこの$X$に関する二次方程式の解に他ならない。</p>
+
     <p>$$ \begin{cases} a=\frac{L^2 g}{2V^2}\cos^2\beta \\
     b=-L\cos\beta \\
     c=\frac{L^2 g}{2V^2}\cos^2\beta+L\sin\beta \end{cases}$$</p>
